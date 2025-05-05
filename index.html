@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د. سارة عبود - طبيبة أسنان</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8f1f0;
+            direction: rtl;
+        }
+        .header {
+            background: linear-gradient(135deg, #d81b60, #f06292);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            animation: fadeIn 1s ease-in;
+        }
+        .header .lang-switch {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #fff;
+            color: #d81b60;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+        .header .lang-switch:hover {
+            background: #f06292;
+            color: #fff;
+        }
+        .section-title {
+            color: #d81b60;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #d81b60;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .before-after-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 4px solid #d81b60;
+        }
+        .before-after-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 20px 40px rgba(216, 27, 96, 0.4);
+        }
+        .before-after-card .image-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2.5rem;
+        }
+        .before-after-card .image-container div {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .before-after-card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .before-after-card img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.5);
+        }
+        .before-after-card p {
+            margin: 1rem 0 0;
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+        .before-after-card .title {
+            font-size: 1.5rem;
+            color: #d81b60;
+            margin-top: 1.5rem;
+        }
+        .experience-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .experience-card:hover {
+            transform: scale(1.05);
+        }
+        /* تنسيق قسم الاتصال */
+        .contact-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(216, 27, 96, 0.1);
+            opacity: 0.3;
+        }
+        .contact-section .section-title {
+            color: white;
+            font-size: 2.8rem;
+            animation: slideIn 1s ease-in-out;
+        }
+        .contact-section .section-title::after {
+            background: #f06292;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contact-info p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info p i {
+            color: #f06292;
+            font-size: 1.8rem;
+        }
+        .contact-info a.phone-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a.phone-link:hover {
+            color: #f06292;
+        }
+        .contact-btn {
+            background: #d81b60;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.4);
+        }
+        .contact-btn:hover {
+            background: #f06292;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.6);
+        }
+        .contact-btn i {
+            font-size: 1.5rem;
+        }
+        footer {
+            background: #880e4f;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .before-after-card .image-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .before-after-card img {
+                height: 250px;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+                display: block;
+                object-fit: cover;
+            }
+            .before-after-card .image-container div {
+                width: 100%;
+            }
+            .before-after-card {
+                padding: 1.5rem;
+            }
+            .header .lang-switch {
+                top: 0.5rem;
+                left: 0.5rem;
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            .contact-section .section-title {
+                font-size: 2rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .contact-info p {
+                font-size: 1.2rem;
+            }
+            .contact-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+        @media (min-width: 769px) {
+            .before-after-card img {
+                width: 100%;
+                height: auto;
+                max-height: 500px;
+                object-fit: contain;
+            }
+            .before-after-card {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index_en.html" class="lang-switch">Switch to English</a>
+            <h1>د. سارة عبود - طبيبة أسنان</h1>
+            <p class="lead">ابتسامات مشرقة مع رعاية احترافية</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">نبذة عن د. سارة</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="5816593395324405089.jpg" alt="د. سارة" class="rounded-circle img-fluid shadow" style="max-width: 250px;">
+                </div>
+                <div class="col-md-8">
+                    <p class="text-muted lead">
+                        د. سارة عبود طبيبة أسنان متميزة تتمتع بخبرة تزيد عن 6 سنوات في طب الأسنان التجميلي والعلاجي. 
+                        حصلت على بكالوريوس جراحة الأسنان من جامعة الرباط الوطنية (2011-2016)، وأكملت دورة في طب الأسنان التجميلي في مركز دينتوليرن للتدريب (2022). 
+                        تتخصص في تصميم الابتسامة، ليزر الأسنان، وعلاجات الأسنان الحديثة باستخدام أحدث التقنيات لتقديم رعاية استثنائية.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-title">قبل وبعد</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="5821120157710403723.jpg" alt="قبل">
+                                <p>قبل</p>
+                            </div>
+                            <div>
+                                <img src="5821120157710403724.jpg" alt="بعد">
+                                <p>بعد</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">تركيبات متحركة سفلية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="5816593395324405075.jpg" alt="قبل">
+                                <p>قبل</p>
+                            </div>
+                            <div>
+                                <img src="5816593395324405079.jpg" alt="بعد">
+                                <p>بعد</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">فينير الأسنان</p>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="5821120157710403705.jpg" alt="قبل">
+                                <p>قبل</p>
+                            </div>
+                            <div>
+                                <img src="5821120157710403704.jpg" alt="بعد">
+                                <p>بعد</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">قص لثة بالليزر</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="5821120157710403706.jpg" alt="قبل">
+                                <p>قبل</p>
+                            </div>
+                            <div>
+                                <img src="5821120157710403707.jpg" alt="بعد">
+                                <p>بعد</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">تركيبات ثابتة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">الخبرة</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">تدريب</h3>
+                        <p class="text-muted">مجمع عيادات الأسنان، جنوب الرياض ومستشفى الملك سلمان، الرياض (مايو 2017 - مايو 2018)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">طبيبة أسنان</h3>
+                        <p class="text-muted">مستشفى الأمل الطبي (ديسمبر 2018 - ديسمبر 2019)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">طبيبة أسنان</h3>
+                        <p class="text-muted">عيادة إليجانت للتجميل وزراعة الأسنان، الخرطوم، السودان (يناير 2020 - أبريل 2023)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">طبيبة أسنان</h3>
+                        <p class="text-muted">عيادة د. محمد فاروق الأمين بشير (مايو 2023 - أكتوبر 2023)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section text-white py-5">
+        <div class="container text-center">
+            <h2 class="section-title text-white">تواصلوا مع د. سارة</h2>
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+966549132484" class="phone-link">966549132484</a>
+                </p>
+            </div>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://wa.me/966549132484?text=مرحبًا%20د.%20سارة!" class="contact-btn text-white" target="_blank">
+                    <i class="fab fa-whatsapp"></i> أرسل رسالة عبر واتساب الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 د. سارة عبود. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
