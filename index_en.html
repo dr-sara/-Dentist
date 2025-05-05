@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sara Aboud - Dentist</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8f1f0;
+            direction: ltr;
+        }
+        .header {
+            background: linear-gradient(135deg, #d81b60, #f06292);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            animation: fadeIn 1s ease-in;
+        }
+        .header .lang-switch {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #fff;
+            color: #d81b60;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+        .header .lang-switch:hover {
+            background: #f06292;
+            color: #fff;
+        }
+        .section-title {
+            color: #d81b60;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #d81b60;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .before-after-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 4px solid #d81b60;
+        }
+        .before-after-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 20px 40px rgba(216, 27, 96, 0.4);
+        }
+        .before-after-card .image-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2.5rem;
+        }
+        .before-after-card .image-container div {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .before-after-card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .before-after-card img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.5);
+        }
+        .before-after-card p {
+            margin: 1rem 0 0;
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+        .before-after-card .title {
+            font-size: 1.5rem;
+            color: #d81b60;
+            margin-top: 1.5rem;
+        }
+        .experience-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .experience-card:hover {
+            transform: scale(1.05);
+        }
+          /* تنسيق قسم الاتصال */
+          .contact-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(216, 27, 96, 0.1);
+            opacity: 0.3;
+        }
+        .contact-section .section-title {
+            color: white;
+            font-size: 2.8rem;
+            animation: slideIn 1s ease-in-out;
+        }
+        .contact-section .section-title::after {
+            background: #f06292;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contact-info p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info p i {
+            color: #f06292;
+            font-size: 1.8rem;
+        }
+        .contact-info a.phone-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a.phone-link:hover {
+            color: #f06292;
+        }
+        .contact-btn {
+            background: #d81b60;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: background 0.3s ease;
+        }
+        .contact-btn:hover {
+            background: #f06292;
+        }
+        footer {
+            background: #880e4f;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .before-after-card .image-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .before-after-card img {
+                height: 250px;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+                display: block;
+                object-fit: cover;
+            }
+            .before-after-card .image-container div {
+                width: 100%;
+            }
+            .before-after-card {
+                padding: 1.5rem;
+            }
+            .header .lang-switch {
+                top: 0.5rem;
+                right: 0.5rem;
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            .contact-section .section-title {
+                font-size: 2rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .contact-info p {
+                font-size: 1.2rem;
+            }
+            .contact-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+
+        }
+        /* التعديل هنا: زيادة حجم الصور والبطاقات على الشاشات الكبيرة */
+        @media (min-width: 769px) {
+            .before-after-card img {
+                width: 100%;
+                height: auto;
+                max-height: 500px;
+                object-fit: contain;
+            }
+            .before-after-card {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="lang-switch">Switch to Arabic</a>
+            <h1>Dr. Sarah Aboud - Dentist</h1>
+            <p class="lead">Bright Smiles with Professional Care</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Dr. Sarah</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="im/5816593395324405089.jpg" alt="Dr. Sarah" class="rounded-circle img-fluid shadow" style="max-width: 250px;">
+                </div>
+                <div class="col-md-8">
+                    <p class="text-muted lead">
+                        Dr. Sarah Aboud is a distinguished dentist with over 6 years of experience in cosmetic and therapeutic dentistry. 
+                        She earned her Bachelor of Dental Surgery from the National Rabat University (2011-2016) and completed a course in cosmetic dentistry at Dentolern Training Center (2022). 
+                        She specializes in smile design, dental laser treatments, and modern dental therapies using the latest techniques to provide exceptional care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-title">Before & After</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="im/5821120157710403723.jpg" alt="Before">
+                                <p>Before</p>
+                            </div>
+                            <div>
+                                <img src="im/5821120157710403724.jpg" alt="After">
+                                <p>After</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">Lower Removable Dentures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="im/5816593395324405075.jpg" alt="Before">
+                                <p>Before</p>
+                            </div>
+                            <div>
+                                <img src="im/5816593395324405079.jpg" alt="After">
+                                <p>After</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">Veneers</p>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="im/5821120157710403705.jpg" alt="Before">
+                                <p>Before</p>
+                            </div>
+                            <div>
+                                <img src="im/5821120157710403704.jpg" alt="After">
+                                <p>After</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">Laser Gum Contouring</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="before-after-card shadow">
+                        <div class="image-container">
+                            <div>
+                                <img src="im/5821120157710403706.jpg" alt="Before">
+                                <p>Before</p>
+                            </div>
+                            <div>
+                                <img src="im/5821120157710403707.jpg" alt="After">
+                                <p>After</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-center fw-bold title">Fixed Prostheses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">Training</h3>
+                        <p class="text-muted">Dental Clinics Complex, South Riyadh and King Salman Hospital, Riyadh (May 2017 - May 2018)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">Dentist</h3>
+                        <p class="text-muted">Al-Amal Medical Hospital (December 2018 - December 2019)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">Dentist</h3>
+                        <p class="text-muted">Elegant Clinic for Cosmetic and Dental Implants, Khartoum, Sudan (January 2020 - April 2023)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="experience-card shadow">
+                        <h3 class="text-pink fs-5 fw-bold">Dentist</h3>
+                        <p class="text-muted">Dr. Mohammed Farooq Amin Bashir Clinic (May 2023 - October 2023)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section text-white py-5">
+        <div class="container text-center">
+            <h2 class="section-title text-white">Contact Dr. Sara</h2>
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+966549132484" class="phone-link">966549132484</a>
+                </p>
+            </div>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://wa.me/966549132484?text=مرحبًا%20د.%20سارة!" class="contact-btn text-white" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Send a WhatsApp Message Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Dr. Sarah Aboud. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
